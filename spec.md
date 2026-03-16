@@ -1,31 +1,37 @@
-# Rakesh Burger Shop
+# USHA Burger Pointe
 
 ## Current State
-New project — no existing code.
+- React + TypeScript frontend
+- 10 burger menu items with add-to-cart functionality
+- Order form: name, phone, address fields
+- WhatsApp order integration (wa.me/916002296217)
+- Customization options (extra cheese, spice, etc.)
+- Payment section with QR code
+- Cancellation policy
+- Contact section
 
 ## Requested Changes (Diff)
 
 ### Add
-- Burger shop landing page with header (shop name, tagline)
-- Navigation: Home, Menu, Contact
-- Menu section with 4 burger items: Veg Burger (₹100), Chicken Burger (₹150), Cheese Burger (₹120), Double Burger (₹180)
-- Each burger card has an image, name, price, and "Add to Cart" button
-- Fixed cart widget showing item count and total price
-- Order form: customer name, phone, delivery address
-- "Send Order" button opens WhatsApp with pre-filled order message to 916002296217
-- Payment section: GPay/Paytm/UPI info
-- Cancellation policy: ₹20 charge if order cancelled after confirmation
-- Contact section: Address (Lumbing Kaliya Road), Phone (6002296217)
-- Footer: © 2026 Rakesh Burger Shop
+- Soft Drinks section: Cola (₹40), Lemon Soda (₹40), Orange Soda (₹45) -- each with generated images
+- Milk Shakes section: Chocolate Shake (₹90), Mango Shake (₹80), Strawberry Shake (₹85) -- each with generated images
+- Postcode field in the order form (below address); delivery area shown as 782447 (Lumding, Assam)
+- Admin Panel (password-protected, password: "usha123") accessible via a hidden link in footer; allows adding/editing/removing items across all categories (Burgers, Soft Drinks, Milk Shakes); data stored in localStorage so changes persist across sessions
+- Nav links for Drinks and Shakes sections
 
 ### Modify
-- N/A
+- Order form: add postcode input field; include postcode in WhatsApp message
+- Header/nav: show delivery postcode 782447
+- WhatsApp message to include postcode
 
 ### Remove
-- N/A
+- Nothing removed
 
 ## Implementation Plan
-1. Generate burger images for all 4 burgers
-2. Build React frontend with all sections
-3. Cart state management (add items, track total)
-4. WhatsApp order integration with pre-filled message
+1. Add SOFT_DRINKS and MILK_SHAKES data arrays with generated image paths
+2. Add reusable menu section renderer for drinks/shakes
+3. Add postcode state + input field in order form
+4. Add postcode to WhatsApp message
+5. Build Admin Panel: password gate, add/edit/delete for items in all categories, localStorage persistence, accessible via /admin route or toggle button in footer
+6. Merge admin-added items with default menu on render using localStorage
+7. Add nav links for new sections
